@@ -44,9 +44,9 @@ async function myAsyncFunction(){
             l1.detectedVal = val1;
             if (l1.detectedVal < 0.5) {
                 flag_l1 = '1';  
-                l1_c.style.backgroundColor = "#FF7878";
+                l1_c.style.fill = "#FF7878";
             } else {
-                l1_c.style.backgroundColor = "#8CFFFF";
+                l1_c.style.fill = "#8CFFFF";
             }
         });
 
@@ -54,9 +54,9 @@ async function myAsyncFunction(){
             l2.detectedVal = val2;
             if (l2.detectedVal < 0.5) {
                 flag_l2 = '1';  
-                l2_c.style.backgroundColor = "#FF7878";
+                l2_c.style.fill = "#FF7878";
             } else {
-                l2_c.style.backgroundColor = "#8CFFFF";
+                l2_c.style.fill = "#8CFFFF";
             }
         });
 
@@ -64,9 +64,9 @@ async function myAsyncFunction(){
             l3.detectedVal = val3;
             if (l3.detectedVal < 0.5) {
                 flag_l3 = '1';  
-                l3_c.style.backgroundColor = "#FF7878";
+                l3_c.style.fill = "#FF7878";
             } else {
-                l3_c.style.backgroundColor = "#8CFFFF";
+                l3_c.style.fill = "#8CFFFF";
             }
         });
 
@@ -74,9 +74,9 @@ async function myAsyncFunction(){
             r1.detectedVal = val4;
             if (r1.detectedVal < 0.5) {
                 flag_r1 = '1';  
-                r1_c.style.backgroundColor = "#FF7878";
+                r1_c.style.fill = "#FF7878";
             } else {
-                r1_c.style.backgroundColor = "#8CFFFF";
+                r1_c.style.fill = "#8CFFFF";
             }
         });
 
@@ -84,9 +84,9 @@ async function myAsyncFunction(){
             r2.detectedVal = val5;
             if (r2.detectedVal < 0.5) {
                 flag_r2 = '1';  
-                r2_c.style.backgroundColor = "#FF7878";
+                r2_c.style.fill = "#FF7878";
             } else {
-                r2_c.style.backgroundColor = "#8CFFFF";
+                r2_c.style.fill = "#8CFFFF";
             }
         });
 
@@ -94,9 +94,9 @@ async function myAsyncFunction(){
             r3.detectedVal = val6;
             if (r3.detectedVal < 0.5) {
                 flag_r3 = '1';  
-                r3_c.style.backgroundColor = "#FF7878";
+                r3_c.style.fill = "#FF7878";
             } else {
-                r3_c.style.backgroundColor = "#8CFFFF";
+                r3_c.style.fill = "#8CFFFF";
             }
         });
 
