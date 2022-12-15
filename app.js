@@ -12,6 +12,9 @@ var flag_r1;
 var flag_r2;
 var flag_r3;
 
+var ans_l = '';
+var ans_r = ''; 
+
 var l1_c = document.querySelector('.l1');
 var l2_c = document.querySelector('.l2');
 var l3_c = document.querySelector('.l3');
@@ -19,6 +22,17 @@ var l3_c = document.querySelector('.l3');
 var r1_c = document.querySelector('.r1');
 var r2_c = document.querySelector('.r2');
 var r3_c = document.querySelector('.r3');
+
+var btn = document.getElementById('btn');
+
+var flag_l1 = '0';
+var flag_l2 = '0';
+var flag_l3 = '0';
+
+var flag_r1 = '0';
+var flag_r2 = '0';
+var flag_r3 = '0';
+
 
 boardReady({device: 'GKxMj'}, function (board) {
     board.samplingInterval = 500;
@@ -30,13 +44,13 @@ boardReady({device: 'GKxMj'}, function (board) {
     r2 = getPhotocell(board, 4);
     r3 = getPhotocell(board, 5);
 
-    flag_l1 = '0';
-    flag_l2 = '0';
-    flag_l3 = '0';
+    // flag_l1 = '0';
+    // flag_l2 = '0';
+    // flag_l3 = '0';
 
-    flag_r1 = '0';
-    flag_r2 = '0';
-    flag_r3 = '0';
+    // flag_r1 = '0';
+    // flag_r2 = '0';
+    // flag_r3 = '0';
 
 
     l1.measure(function (val1) {
@@ -75,37 +89,71 @@ boardReady({device: 'GKxMj'}, function (board) {
         console.log("val3 =>" + val3)
     });
 
-    // r1.measure(function (val4) {
-    //     r1.detectedVal = val4;
-    //     if (r1.detectedVal < 0.5) {
-    //         flag_r1 = '1';  
-    //         r1_c.style.fill = "#FF7878";
-    //     } else {
-    //         r1_c.style.fill = "#8CFFFF";
-    //     }
-    // });
+    r1.measure(function (val4) {
+        r1.detectedVal = val4;
+        if (r1.detectedVal > 0.4) {
+            flag_r1 = '1';  
+            r1_c.style.fill = "#8CFFFF";
+        } else {
+            flag_r1 = '0'; 
+            r1_c.style.fill = "#FF7878";
+        }
+        console.log("val4 =>" + val4)
+    });
 
-    // r2.measure(function (val5) {
-    //     r2.detectedVal = val5;
-    //     if (r2.detectedVal < 0.5) {
-    //         flag_r2 = '1';  
-    //         r2_c.style.fill = "#FF7878";
-    //     } else {
-    //         r2_c.style.fill = "#8CFFFF";
-    //     }
-    // });
+    r2.measure(function (val5) {
+        r2.detectedVal = val5;
+        if (r2.detectedVal > 0.4) {
+            flag_r2 = '1';  
+            r2_c.style.fill = "#8CFFFF";
+        } else {
+            flag_r2 = '0'; 
+            r2_c.style.fill = "#FF7878";
+        }
+        console.log("val5 =>" + val5)
+    });
 
-    // r3.measure(function (val6) {
-    //     r3.detectedVal = val6;
-    //     if (r3.detectedVal < 0.5) {
-    //         flag_r3 = '1';  
-    //         r3_c.style.fill = "#FF7878";
-    //     } else {
-    //         r3_c.style.fill = "#8CFFFF";
-    //     }
-    // });
+    r3.measure(function (val6) {
+        r3.detectedVal = val6;
+        if (r3.detectedVal > 0.4) {
+            flag_r3 = '1';  
+            r3_c.style.fill = "#8CFFFF";
+        } else {
+            flag_r3 = '0'; 
+            r3_c.style.fill = "#FF7878";
+        }
+        console.log("val6 =>" + val6)
+    });
 
 });
+
+btn.onclick = function () {
+    if (flag_l1 == '0'&& flag_l2 == '0'&& flag_l3 == '0') {
+        ans_l = '測量不到';
+    } else if (flag_l1 == '0'&& flag_l2 == '1'&& flag_l3 == '1') {
+        ans_l = '正常足';
+    } else if (flag_l1 == '1'&& flag_l2 == '1'&& flag_l3 == '1') {
+        ans_l = '扁平足';
+    } else if (flag_l1 == '1'&& flag_l2 == '0'&& flag_l3 == '1') {
+        ans_l = '高弓足';
+    }
+
+    if (flag_r1 == '0'&& flag_r2 == '0'&& flag_r3 == '0') {
+        ans_r = '測量不到';
+    } else if (flag_r1 == '0'&& flag_r2 == '1'&& flag_r3 == '1') {
+        ans_r = '正常足';
+    } else if (flag_r1 == '1'&& flag_r2 == '1'&& flag_r3 == '1') {
+        ans_r = '扁平足';
+    } else if (flag_r1 == '1'&& flag_r2 == '0'&& flag_r3 == '1') {
+        ans_r = '高弓足';
+    }
+
+    document.getElementById('ansl').value = ans_l;
+    document.getElementById('ansr').value = ans_r;
+
+    console.log("ans_l =>" + ans_l);
+    console.log("ans_r =>" + ans_r);
+}
 
 
 window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {

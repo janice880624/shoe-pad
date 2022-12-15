@@ -19,7 +19,8 @@
     <header>
         <h1 id="head"> 腳型量測平台 </h1>
     </header>
-    <div class="d-flex justify-content-center">
+
+    <div class="d-flex justify-content-center mt-3 mb-3">
         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 width="700" height="650"viewBox="0 0 700 650" style="enable-background:new 0 0 700 650;" xml:space="preserve">
             <style type="text/css">
@@ -97,9 +98,27 @@
                 l5.4-17C574.4,425.7,571.8,420.8,567.2,419.3z"/>
         </svg>
     </div>
-    <!-- <footer>
-        <p id="footer-p"> © 2021 Janice、Gigi、Arya All rights reserved</p>
-    </footer> -->
+    
+    <div class="container">
+
+        <div class="d-grid gap-2 mt-2"> 
+            <button class="btn btn-outline-primary btn-block" id="btn">計算結果</button>
+        </div>
+
+        <div class="row align-items-center mt-2 justify-content:center">
+            <div class="col text-align:center">
+                <h5><b> 左腳判斷結果： </b></h5>
+                <input id="ansl" class='text-center align-items-center' style='font-size:1.5em;' type='text' disabled><br>
+            </div>
+            <div class="col text-align:center">
+                <h5><b> 右腳判斷結果： </b></h5>
+                <input id="ansr" class='text-center align-items-center' style='font-size:1.5em;' type='text' disabled><br>
+            </div>
+        </div>
+    </div>
+
+    </script>
+    
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
