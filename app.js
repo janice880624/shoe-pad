@@ -55,104 +55,110 @@ boardReady({device: 'GKxMj'}, function (board) {
 
     l1.measure(function (val1) {
         l1.detectedVal = val1;
-        if (l1.detectedVal > 0.4) {
+        if (l1.detectedVal < 0.5) {
             flag_l1 = '1';  
             l1_c.style.fill = "#8CFFFF";
+            r1_c.style.fill = "#8CFFFF";
         } else {
             flag_l1 = '0'; 
             l1_c.style.fill = "#FF7878";
+            r1_c.style.fill = "#FF7878";
         }
         console.log("val1 =>" + val1)
     });
 
     l2.measure(function (val2) {
         l2.detectedVal = val2;
-        if (l2.detectedVal > 0.4) {
+        if (l2.detectedVal < 0.5) {
             flag_l2 = '1';  
             l2_c.style.fill = "#8CFFFF";
+            r2_c.style.fill = "#8CFFFF";
         } else {
             flag_l2 = '0'; 
             l2_c.style.fill = "#FF7878";
+            r2_c.style.fill = "#FF7878";
         }
         console.log("val2 =>" + val2)
     });
 
     l3.measure(function (val3) {
         l3.detectedVal = val3;
-        if (l3.detectedVal > 0.4) {
+        if (l3.detectedVal < 0.5) {
             flag_l3 = '1';  
             l3_c.style.fill = "#8CFFFF";
+            r3_c.style.fill = "#8CFFFF";
         } else {
             flag_l3 = '0'; 
             l3_c.style.fill = "#FF7878";
+            r3_c.style.fill = "#FF7878";
         }
         console.log("val3 =>" + val3)
     });
 
-    r1.measure(function (val4) {
-        r1.detectedVal = val4;
-        if (r1.detectedVal > 0.4) {
-            flag_r1 = '1';  
-            r1_c.style.fill = "#8CFFFF";
-        } else {
-            flag_r1 = '0'; 
-            r1_c.style.fill = "#FF7878";
-        }
-        console.log("val4 =>" + val4)
-    });
+    // r1.measure(function (val4) {
+    //     r1.detectedVal = val4;
+    //     if (r1.detectedVal < 0.5) {
+    //         flag_r1 = '1';  
+    //         r1_c.style.fill = "#8CFFFF";
+    //     } else {
+    //         flag_r1 = '0'; 
+    //         r1_c.style.fill = "#FF7878";
+    //     }
+    //     // console.log("val4 =>" + val4)
+    // });
 
-    r2.measure(function (val5) {
-        r2.detectedVal = val5;
-        if (r2.detectedVal > 0.4) {
-            flag_r2 = '1';  
-            r2_c.style.fill = "#8CFFFF";
-        } else {
-            flag_r2 = '0'; 
-            r2_c.style.fill = "#FF7878";
-        }
-        console.log("val5 =>" + val5)
-    });
+    // r2.measure(function (val5) {
+    //     r2.detectedVal = val5;
+    //     if (r2.detectedVal < 0.5) {
+    //         flag_r2 = '1';  
+    //         r2_c.style.fill = "#8CFFFF";
+    //     } else {
+    //         flag_r2 = '0'; 
+    //         r2_c.style.fill = "#FF7878";
+    //     }
+    //     // console.log("val5 =>" + val5)
+    // });
 
-    r3.measure(function (val6) {
-        r3.detectedVal = val6;
-        if (r3.detectedVal > 0.4) {
-            flag_r3 = '1';  
-            r3_c.style.fill = "#8CFFFF";
-        } else {
-            flag_r3 = '0'; 
-            r3_c.style.fill = "#FF7878";
-        }
-        console.log("val6 =>" + val6)
-    });
+    // r3.measure(function (val6) {
+    //     r3.detectedVal = val6;
+    //     if (r3.detectedVal < 0.5) {
+    //         flag_r3 = '1';  
+    //         r3_c.style.fill = "#8CFFFF";
+    //     } else {
+    //         flag_r3 = '0'; 
+    //         r3_c.style.fill = "#FF7878";
+    //     }
+    //     // console.log("val6 =>" + val6)
+    // });
 
 });
 
 btn.onclick = function () {
-    if (flag_l1 == '0'&& flag_l2 == '0'&& flag_l3 == '0') {
-        ans_l = '測量不到';
-    } else if (flag_l1 == '0'&& flag_l2 == '1'&& flag_l3 == '1') {
+    if (flag_l1 == '0'&& flag_l2 == '1'&& flag_l3 == '1') {
         ans_l = '正常足';
     } else if (flag_l1 == '1'&& flag_l2 == '1'&& flag_l3 == '1') {
         ans_l = '扁平足';
     } else if (flag_l1 == '1'&& flag_l2 == '0'&& flag_l3 == '1') {
         ans_l = '高弓足';
+    } else {
+        ans_l = '測量異常';
     }
 
-    if (flag_r1 == '0'&& flag_r2 == '0'&& flag_r3 == '0') {
-        ans_r = '測量不到';
-    } else if (flag_r1 == '0'&& flag_r2 == '1'&& flag_r3 == '1') {
-        ans_r = '正常足';
-    } else if (flag_r1 == '1'&& flag_r2 == '1'&& flag_r3 == '1') {
-        ans_r = '扁平足';
-    } else if (flag_r1 == '1'&& flag_r2 == '0'&& flag_r3 == '1') {
-        ans_r = '高弓足';
-    }
+    // if (flag_r1 == '0'&& flag_r2 == '0'&& flag_r3 == '0') {
+    //     ans_r = '測量不到';
+    // } else if (flag_r1 == '0'&& flag_r2 == '1'&& flag_r3 == '1') {
+    //     ans_r = '正常足';
+    // } else if (flag_r1 == '1'&& flag_r2 == '1'&& flag_r3 == '1') {
+    //     ans_r = '扁平足';
+    // } else if (flag_r1 == '1'&& flag_r2 == '0'&& flag_r3 == '1') {
+    //     ans_r = '高弓足';
+    // }
 
     document.getElementById('ansl').value = ans_l;
-    document.getElementById('ansr').value = ans_r;
+    document.getElementById('ansr').value = ans_l;
 
     console.log("ans_l =>" + ans_l);
-    console.log("ans_r =>" + ans_r);
+    // console.log("ans_r =>" + ans_r);
 }
 
 
