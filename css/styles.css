@@ -65,7 +65,6 @@ body{
     }
 }
 
-
 @media (min-width: 900px) {
     #plant-img, #house-img, #car-img, #light-img {
         width: 400px;
