@@ -64,7 +64,7 @@ boardReady({device: 'GKxMj'}, function (board) {
             l1_c.style.fill = "#FF7878";
             r1_c.style.fill = "#FF7878";
         }
-        console.log("val1 =>" + val1)
+        // console.log("val1 =>" + val1)
     });
 
     l2.measure(function (val2) {
@@ -92,7 +92,7 @@ boardReady({device: 'GKxMj'}, function (board) {
             l3_c.style.fill = "#FF7878";
             r3_c.style.fill = "#FF7878";
         }
-        console.log("val3 =>" + val3)
+        // console.log("val3 =>" + val3)
     });
 
     // r1.measure(function (val4) {
