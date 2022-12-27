@@ -5,9 +5,14 @@ var r1;
 var r2;
 var r3;
 
+var l1_value = 0;
+var l2_value = 0;
+var l3_value = 0;
+
 var flag_l1;
 var flag_l2;
 var flag_l3;
+
 var flag_r1;
 var flag_r2;
 var flag_r3;
@@ -37,25 +42,16 @@ var flag_r3 = '0';
 boardReady({device: 'GKxMj'}, function (board) {
     board.samplingInterval = 500;
     l1 = getPhotocell(board, 0);
-    l2 = getPhotocell(board, 1);
+    l2 = getPhotocell(board, 3);
     l3 = getPhotocell(board, 2);
 
-    r1 = getPhotocell(board, 3);
+    r1 = getPhotocell(board, 1);
     r2 = getPhotocell(board, 4);
     r3 = getPhotocell(board, 5);
 
-    // flag_l1 = '0';
-    // flag_l2 = '0';
-    // flag_l3 = '0';
-
-    // flag_r1 = '0';
-    // flag_r2 = '0';
-    // flag_r3 = '0';
-
-
     l1.measure(function (val1) {
         l1.detectedVal = val1;
-        if (l1.detectedVal < 0.5) {
+        if (l1.detectedVal > 0.4) {
             flag_l1 = '1';  
             l1_c.style.fill = "#8CFFFF";
             r1_c.style.fill = "#8CFFFF";
@@ -64,12 +60,13 @@ boardReady({device: 'GKxMj'}, function (board) {
             l1_c.style.fill = "#FF7878";
             r1_c.style.fill = "#FF7878";
         }
-        // console.log("val1 =>" + val1)
+        console.log("val1 =>" + val1)
     });
 
     l2.measure(function (val2) {
         l2.detectedVal = val2;
-        if (l2.detectedVal < 0.5) {
+        l2_value = ((l2.detectedVal - (0.72)) * (1/((0.92)-(0.72)))) * ((1)-(0)) + (0);
+        if (l2_value > 0.3 || l2_value == 0) {
             flag_l2 = '1';  
             l2_c.style.fill = "#8CFFFF";
             r2_c.style.fill = "#8CFFFF";
@@ -78,12 +75,13 @@ boardReady({device: 'GKxMj'}, function (board) {
             l2_c.style.fill = "#FF7878";
             r2_c.style.fill = "#FF7878";
         }
-        console.log("val2 =>" + val2)
+        console.log("val2 =>" + l2_value)
     });
 
     l3.measure(function (val3) {
         l3.detectedVal = val3;
-        if (l3.detectedVal < 0.5) {
+        l3_value = ((l3.detectedVal - (0.78)) * (1/((0.87)-(0.78)))) * ((1)-(0)) + (0);
+        if (l3_value >0.8) {
             flag_l3 = '1';  
             l3_c.style.fill = "#8CFFFF";
             r3_c.style.fill = "#8CFFFF";
@@ -92,7 +90,7 @@ boardReady({device: 'GKxMj'}, function (board) {
             l3_c.style.fill = "#FF7878";
             r3_c.style.fill = "#FF7878";
         }
-        // console.log("val3 =>" + val3)
+        console.log("val3 =>" + l3_value)
     });
 
     // r1.measure(function (val4) {
@@ -138,7 +136,7 @@ btn.onclick = function () {
         ans_l = '正常足';
     } else if (flag_l1 == '1'&& flag_l2 == '1'&& flag_l3 == '1') {
         ans_l = '扁平足';
-    } else if (flag_l1 == '1'&& flag_l2 == '0'&& flag_l3 == '1') {
+    } else if (flag_l1 == '0'&& flag_l2 == '0'&& flag_l3 == '1') {
         ans_l = '高弓足';
     } else {
         ans_l = '測量異常';
