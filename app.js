@@ -65,8 +65,8 @@ boardReady({device: 'GKxMj'}, function (board) {
 
     l2.measure(function (val2) {
         l2.detectedVal = val2;
-        l2_value = ((l2.detectedVal - (0.72)) * (1/((0.92)-(0.72)))) * ((1)-(0)) + (0);
-        if (l2_value > 0.87 || l2_value == 0) {
+        l2_value = ((l2.detectedVal - (0.72)) * (1/((0.93)-(0.72)))) * ((1)-(0)) + (0);
+        if (l2_value > 0.92 || l2_value == 0) {
             flag_l2 = '1';  
             l2_c.style.fill = "#8CFFFF";
             r2_c.style.fill = "#8CFFFF";
@@ -80,8 +80,8 @@ boardReady({device: 'GKxMj'}, function (board) {
 
     l3.measure(function (val3) {
         l3.detectedVal = val3;
-        l3_value = ((l3.detectedVal - (0.78)) * (1/((0.94)-(0.78)))) * ((1)-(0)) + (0);
-        if (l3_value > 0.88) {
+        l3_value = ((l3.detectedVal - (0.78)) * (1/((0.97)-(0.78)))) * ((1)-(0)) + (0);
+        if (l3_value > 0.9) {
             flag_l3 = '1';  
             l3_c.style.fill = "#8CFFFF";
             r3_c.style.fill = "#8CFFFF";
